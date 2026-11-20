@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f8f7">
+    <title>BMI 분석기</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="page">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="BMI 분석기 홈">
+          <span class="brand-mark" aria-hidden="true">B</span>
+          <span>밸런스<span class="brand-light">노트</span></span>
+        </a>
+        <span class="topbar-note">나를 알아가는 건강 기록</span>
+      </header>
+
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow"><span aria-hidden="true"></span> BODY MASS INDEX</p>
+        <h1 id="page-title">내 몸의 균형,<br>가볍게 확인해 보세요.</h1>
+        <p class="intro-copy">키와 몸무게로 BMI를 계산하고<br class="mobile-break"> 나에게 맞는 건강 정보를 확인할 수 있어요.</p>
+      </section>
+
+      <section class="calculator" aria-labelledby="form-title">
+        <div class="section-heading">
+          <div>
+            <p class="step-label">YOUR INFORMATION</p>
+            <h2 id="form-title">기본 정보를 입력해 주세요</h2>
+          </div>
+          <span class="step-number" aria-hidden="true">01</span>
+        </div>
+
+        <form id="bmi-form" novalidate>
+          <div class="fields">
+            <label class="field" for="height">
+              <span class="field-label">키</span>
+              <span class="input-wrap">
+                <input id="height" name="height" type="number" inputmode="decimal" min="1" step="any" placeholder="예: 170" autocomplete="off" required>
+                <span class="unit">cm</span>
+              </span>
+            </label>
+            <label class="field" for="weight">
+              <span class="field-label">몸무게</span>
+              <span class="input-wrap">
+                <input id="weight" name="weight" type="number" inputmode="decimal" min="1" step="any" placeholder="예: 65" autocomplete="off" required>
+                <span class="unit">kg</span>
+              </span>
+            </label>
+          </div>
+
+          <p id="form-error" class="form-error" role="alert" hidden></p>
+          <button class="submit-button" type="submit">
+            BMI 확인하기
+            <span aria-hidden="true">↗</span>
+          </button>
+        </form>
+
+        <section id="result" class="result" aria-live="polite" aria-labelledby="result-title" hidden>
+          <div class="result-top">
+            <div>
+              <p class="step-label">YOUR RESULT</p>
+              <h2 id="result-title">분석 결과</h2>
+            </div>
+            <span class="result-icon" aria-hidden="true">✳</span>
+          </div>
+          <div class="bmi-reading">
+            <span class="bmi-label">체질량지수 (BMI)</span>
+            <div class="bmi-value"><span id="bmi-value">--</span><span class="bmi-unit">kg/m²</span></div>
+            <p id="bmi-category" class="category"></p>
+          </div>
+          <div class="reference">
+            <span class="reference-icon" aria-hidden="true">↔</span>
+            <p>정상 BMI 구간의 참고 체중<span id="weight-range"></span></p>
+          </div>
+          <p class="disclaimer">BMI는 체중 상태를 살펴보는 참고 지표입니다. 근육량이나 체성분은 반영하지 않으므로 결과를 건강 진단으로 해석하지 마세요.</p>
+        </section>
+      </section>
+
+      <footer class="footer">
+        <span>한국 성인 BMI 기준</span>
+        <span>건강한 변화는 나를 이해하는 것부터</span>
+      </footer>
+    </main>
+  </body>
+</html>
